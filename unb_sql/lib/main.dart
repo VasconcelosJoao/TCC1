@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unb_sql/blocs/code_bloc/code_bloc.dart';
 import 'package:unb_sql/show_terminal_cubit.dart';
 import 'package:unb_sql/theme_cubit.dart';
 import 'package:unb_sql/widgets/header.dart';
@@ -17,6 +18,7 @@ void main() {
       providers: [
         BlocProvider(create: (context) => ShowTerminalCubit()),
         BlocProvider(create: (context) => ThemeCubit()),
+        BlocProvider(create: (context) => CodeBloc()),
       ],
       child: const MainApp(),
     ),
@@ -33,7 +35,6 @@ class MainApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: theme,
         home: LayoutBuilder(builder: (context, constraints) {
-          print("width = ${constraints.maxWidth}");
           if (constraints.maxWidth < 800) {
             return const Scaffold(
               body: Center(

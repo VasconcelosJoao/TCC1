@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_pty/flutter_pty.dart';
 import 'package:unb_sql/functions.dart';
-import 'package:xterm/core.dart';
 import 'package:xterm/xterm.dart';
 
 class TerminalArea extends StatefulWidget {
-  const TerminalArea({super.key});
+  const TerminalArea({
+    super.key,
+  });
 
   @override
   _TerminalAreaState createState() => _TerminalAreaState();
@@ -32,9 +33,6 @@ class _TerminalAreaState extends State<TerminalArea> {
 
   final terminal = Terminal(
     maxLines: 10000,
-    onOutput: (data) {
-      print(data);
-    },
   );
 
   void _startPty() {
