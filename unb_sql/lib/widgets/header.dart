@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unb_sql/functions.dart';
+import 'package:unb_sql/show_terminal_cubit.dart';
 import 'package:unb_sql/theme_cubit.dart';
 
 class Header extends StatelessWidget {
@@ -46,7 +47,9 @@ class Header extends StatelessWidget {
             title: "Executar",
           ),
           HeaderButton(
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<ShowTerminalCubit>(context).toggleTerminal();
+            },
             iconData: Icons.terminal,
             title: "Terminal",
           ),
@@ -94,6 +97,11 @@ class HeaderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
+      style: TextButton.styleFrom(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero, // Define bordas retas
+        ),
+      ),
       child: Row(
         children: [
           Icon(iconData),

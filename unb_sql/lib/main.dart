@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unb_sql/show_terminal_cubit.dart';
 import 'package:unb_sql/theme_cubit.dart';
 import 'package:unb_sql/widgets/header.dart';
 import 'package:unb_sql/widgets/left_bar.dart';
@@ -12,8 +13,11 @@ List<Color> cores = [
 
 void main() {
   runApp(
-    BlocProvider(
-      create: (context) => ThemeCubit(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => ShowTerminalCubit()),
+        BlocProvider(create: (context) => ThemeCubit()),
+      ],
       child: const MainApp(),
     ),
   );

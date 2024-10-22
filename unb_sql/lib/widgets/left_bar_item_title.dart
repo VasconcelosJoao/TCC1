@@ -28,7 +28,20 @@ class LeftBarTitle extends StatelessWidget {
                 softWrap: true,
               ),
             ),
-            const Icon(Icons.add),
+            IconButton(
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              style: TextButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero, // Define bordas retas
+                ),
+              ),
+              icon: const Icon(
+                Icons.add,
+                size: 24,
+              ),
+            )
           ],
         ),
       ),
