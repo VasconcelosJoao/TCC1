@@ -30,3 +30,8 @@ class SaveCodeWritten extends CodeEvent {
   @override
   List<Object?> get props => [code];
 }
+
+class ExecuteCode extends CodeEvent {
+  @override
+  List<Object?> get props => [];
+}

@@ -45,6 +45,7 @@ class Header extends StatelessWidget {
           HeaderButton(
             onPressed: () {
               BlocProvider.of<CodeBloc>(context).add(NeedToSaveCode());
+              BlocProvider.of<CodeBloc>(context).add(ExecuteCode());
             },
             iconData: Icons.play_arrow,
             title: "Executar",
